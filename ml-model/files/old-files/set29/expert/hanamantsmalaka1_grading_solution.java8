@@ -1,0 +1,39 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int[] solve(int[] arr) {
+        int finalarr[] = new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+
+            int nextnum=0;
+            if(arr[i]<38){
+                finalarr[i]=arr[i];
+                continue;
+            }
+            if(arr[i]%5==0){
+                finalarr[i]=arr[i];
+                continue;
+            }else{
+                int a=arr[i]%5;
+                int b=arr[i]/5;
+                nextnum=(b+1)*5;
+                System.out.println("nextnum : "+nextnum+"a : "+a+" b : "+b);
+            }
+
+            if((nextnum-arr[i])<3){
+                finalarr[i]=arr[i]+(nextnum-arr[i]);
+            }else{
+                finalarr[i]=arr[i];
+            }
+
+        }
+        return finalarr;
+
+    }
+
+}

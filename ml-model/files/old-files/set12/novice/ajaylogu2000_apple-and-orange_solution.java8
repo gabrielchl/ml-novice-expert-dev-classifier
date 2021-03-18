@@ -1,0 +1,53 @@
+import java.util.*;
+class Solution
+{
+  public static void main(String args[])
+  {
+    Scanner s=new Scanner(System.in);
+    int n1,n2;
+    int l1=s.nextInt();
+    int l2=s.nextInt();
+    int value1=s.nextInt();
+    int value2=s.nextInt();
+    n1=s.nextInt();
+    n2=s.nextInt();
+    int a[]=new int[n1];
+    int a1[]=new int[n2];
+    for(int i=0;i<n1;i++)
+    {
+      a[i]=s.nextInt();
+    }
+    for(int i=0;i<n2;i++)
+    {
+      a1[i]=s.nextInt();
+    }
+    int count=0;
+    for(int i=0;i<n1;i++)
+    {
+       int c=value1+a[i];
+       for(int k=l1;k<=l2;k++)
+       {
+         if(c==k)
+         {
+             count=count+1;
+             break;
+         }
+       }
+     }
+    int count1=0;
+     for(int i=0;i<n2;i++)
+    {
+       int c1=value2+a1[i];
+       for(int k=l1;k<=l2;k++)
+       {
+         if(c1==k)
+         {
+             count1=count1+1;
+             break;
+         }
+       }
+     }
+     System.out.println(count);
+     System.out.print(count1);
+   }
+}

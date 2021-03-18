@@ -1,0 +1,27 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+     static int[] solve(int[] grades) {
+     int[] gradesResult=new int[grades.length];
+     for(int i=0; i<grades.length;i++){
+         int calculatedGrade=((grades[i]/5)+1)*5;
+         if(calculatedGrade<40){
+             gradesResult[i]=grades[i];
+         }else{
+             if(calculatedGrade-grades[i]<3){
+                 gradesResult[i]=calculatedGrade;
+             }else{
+                 gradesResult[i]=grades[i];
+             }
+         }
+     }
+     return gradesResult;
+ }
+
+
+}

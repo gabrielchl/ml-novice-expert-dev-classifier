@@ -1,0 +1,25 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int[] solve(int[] grades) {
+        int[] roundOff = new int[grades.length];
+       for(int i =0;i<grades.length;i++){
+if(grades[i]<38){
+roundOff[i] = grades[i];
+} else{
+    if(grades[i]%5<3){
+roundOff[i]=grades[i];
+    } else{
+roundOff[i]=grades[i]+(5-grades[i]%5);
+    }
+}
+       }
+return roundOff;
+    }
+
+}
