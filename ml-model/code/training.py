@@ -82,8 +82,19 @@ y = dataset[:, -1]
 # x = scaler.fit_transform(x)
 
 # print(dataset)
-print(np.min(x, axis=0))
-print(np.max(x, axis=0))
+dataset_min = np.min(x, axis=0)
+dataset_q1 = np.percentile(x, 25, axis=0)
+dataset_median = np.median(x, axis=0)
+dataset_q3 = np.percentile(x, 75, axis=0)
+dataset_max = np.max(x, axis=0)
+
+dataset_novice_mean = np.mean([x for i, x in enumerate(x) if y[i] == 0], axis=0)
+dataset_expert_mean = np.mean([x for i, x in enumerate(x) if y[i] == 1], axis=0)
+
+dataset_metrics = np.column_stack((dataset_min, dataset_q1, dataset_median, dataset_q3, dataset_max, dataset_novice_mean, dataset_expert_mean))
+dataset_metrics = np.around(dataset_metrics, 2)
+print(dataset_metrics)
+np.savetxt('dataset_metrics.csv', dataset_metrics, delimiter=',')
 
 # fig, axs = pyplot.subplots(4, 4)
 #
